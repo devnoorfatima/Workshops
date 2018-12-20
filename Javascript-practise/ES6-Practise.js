@@ -58,19 +58,20 @@
 // const numbers = [3,62,234,7,23,74,23,76,92];
 // const num = numbers.filter (numbers => numbers >= 70);
 // console.log(num);
+// Exercise - 2
+// const items =Array.from(document.querySelectorAll("[data-time]"));
+// debugger;
+// console.log(items);
+// const filtered = items.filter(item => item.textContent.includes('Flexbox'))
+// .map(item => item.dataset.time)
+// .map(timecode => {
+//     const parts = timecode.split(":").map(part => parseFloat(part));
+//     return (parts[0] * 60 ) + parts [1];
+// }) 
+// .reduce((totalTime, seconds) => totalTime + seconds,0);
+// console.log(filtered); 
 
-const items =Array.from(document.querySelectorAll("[data-time]"));
-console.log(items);
-
-const filtered = items.filter(item => item.textContent.includes('Flexbox'))
-
-.map(item => item.dataset.time)
-.map(timecode => {
-    const parts = timecode.split(":").map(part => parseFloat(part));
-    return (parts[0] * 60 ) + parts [1];
-}) 
-
-.reduce((totalTime, seconds) => totalTime + seconds,0)
-
-console.log(filtered);
-
+const age = 25;
+const name = "Jerry";
+const sentence = ` My mouse ${name} is ${age} years old`;
+console.log(sentence);
