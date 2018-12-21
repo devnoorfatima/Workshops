@@ -71,7 +71,23 @@
 // .reduce((totalTime, seconds) => totalTime + seconds,0);
 // console.log(filtered); 
 
+// const age = 25;
+// const name = "Jerry";
+// const sentence = ` My mouse ${name} is ${age} years old`;
+// console.log(sentence);
+
+function highlight (strings, ...values){
+ let str = "";
+ strings.forEach((string , i) => { 
+    str += `${string} <span contenteditable class="hl">${values[i] || ""}</span>`;
+    });
+return str;
+}
+
 const age = 25;
 const name = "Jerry";
-const sentence = ` My mouse ${name} is ${age} years old`;
+const sentence = highlight` My mouse ${name} is ${age} years old`;
+document.body.innerHTML=sentence;
 console.log(sentence);
+
+
