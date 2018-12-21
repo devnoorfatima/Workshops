@@ -76,18 +76,43 @@
 // const sentence = ` My mouse ${name} is ${age} years old`;
 // console.log(sentence);
 
-function highlight (strings, ...values){
- let str = "";
- strings.forEach((string , i) => { 
-    str += `${string} <span contenteditable class="hl">${values[i] || ""}</span>`;
-    });
-return str;
-}
+//  Tagged Template Practice
 
-const age = 25;
-const name = "Jerry";
-const sentence = highlight` My mouse ${name} is ${age} years old`;
+// function highlight (strings, ...values){
+//  let str = "";
+//  strings.forEach((string , i) => { 
+//     str += `${string} <span contenteditable class="hl">${values[i] || ""}</span>`;
+//     });
+// return str;
+// }
+
+// const age = 25;
+// const name = "Jerry";
+// const sentence = highlight` My mouse ${name} is ${age} years old`;
+// document.body.innerHTML=sentence;
+// console.log(sentence);
+
+const name = "Mickey";
+const profession = "Baker";
+const place = "Bakery"
+const items = {
+    Bread : "French" ,
+    Cookies :"Live baked",
+    Cakes  : "With lovely icing"
+}
+function addAbbreviation (strings,...values){
+    const abbreviated = values.map(value => {
+        if (items[value]) {
+            return `<abbr title = "${items[value]}">${value}</abbr>`
+        }
+        return value;
+    });
+    return strings.reduce((sentence,string,i)=>{
+        return `${sentence}${string}${abbreviated[i] || ""}`;
+    }, "");
+} 
+
+
+const sentence = addAbbreviation`${name} is a ${profession}, works in a ${place} makes ${"Bread"} ,${"Cookies"}, ${"Cakes"}. `;
 document.body.innerHTML=sentence;
 console.log(sentence);
-
-
