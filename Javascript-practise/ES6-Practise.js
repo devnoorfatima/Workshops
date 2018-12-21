@@ -1,4 +1,4 @@
-// // Local Variables 
+// ========>>> Local Variables 
 //  function setWidth() {
 //      var width = 25;
 //      console.log(width);
@@ -6,7 +6,7 @@
 //  setWidth();
 //  console.log(width);
 
-// // //  Global variables
+// =========>>>  Global variables
 
 // var age = 40;
 //   if (age > 10) {
@@ -15,7 +15,7 @@
 // } 
 // console.log(immunity);
 
-// // // Let vs Const
+// =======>>> Let vs Const
 
 // let points = 550;
 // let winner = false;
@@ -35,7 +35,7 @@
 // person.age = 20;  
 // // age changed
 
-// // Arrow Functions =>
+// =======>>> Arrow Functions =>
 // var names = ["max" , "dom" , "fats"];
 // const fullName = names.map(function(name){
 // return (name + "well");
@@ -76,7 +76,7 @@
 // const sentence = ` My mouse ${name} is ${age} years old`;
 // console.log(sentence);
 
-//  Tagged Template Practice
+// =======>>> Tagged Template Practice
 
 // function highlight (strings, ...values){
 //  let str = "";
@@ -92,27 +92,48 @@
 // document.body.innerHTML=sentence;
 // console.log(sentence);
 
-const name = "Mickey";
-const profession = "Baker";
-const place = "Bakery"
-const items = {
-    Bread : "French" ,
-    Cookies :"Live baked",
-    Cakes  : "With lovely icing"
-}
-function addAbbreviation (strings,...values){
-    const abbreviated = values.map(value => {
-        if (items[value]) {
-            return `<abbr title = "${items[value]}">${value}</abbr>`
-        }
-        return value;
-    });
-    return strings.reduce((sentence,string,i)=>{
-        return `${sentence}${string}${abbreviated[i] || ""}`;
-    }, "");
-} 
+// const name = "Mickey";
+// const profession = "Baker";
+// const place = "Bakery"
+// const items = {
+//     Bread : "French" ,
+//     Cookies :"Live baked",
+//     Cakes  : "With lovely icing"
+// }
+// function addAbbreviation (strings,...values){
+//     const abbreviated = values.map(value => {
+//         if (items[value]) {
+//             return `<abbr title = "${items[value]}">${value}</abbr>`
+//         }
+//         return value;
+//     });
+//     return strings.reduce((sentence,string,i)=>{
+//         return `${sentence}${string}${abbreviated[i] || ""}`;
+//     }, "");
+// } 
 
 
-const sentence = addAbbreviation`${name} is a ${profession}, works in a ${place} makes ${"Bread"} ,${"Cookies"}, ${"Cakes"}. `;
-document.body.innerHTML=sentence;
-console.log(sentence);
+// const sentence = addAbbreviation`${name} is a ${profession}, works in a ${place} makes ${"Bread"} ,${"Cookies"}, ${"Cakes"}. `;
+// document.body.innerHTML=sentence;
+// console.log(sentence);
+
+// =====>>>> New String methods:
+// const number = "02259696896" ;
+// const course = "RFB2";
+//  .startsWith()
+//  .endsWith()
+//  .includes()
+//  .repeat()
+
+// =======>>> Destructuring objects:
+const organisms = {
+    marine   :"vertebrates",
+    freshwater :"Planeria",
+    both  : "hydra"
+};
+
+// const {marine,freshwater,both} = organisms;
+
+// ======>>> Destructuring arrays:
+const earthlings= ["grass" , "goat" , "lion" , "man" , "hippo" , "crow"];
+const [producer , herbivore , carnivore , ...omnivore] = earthlings;
