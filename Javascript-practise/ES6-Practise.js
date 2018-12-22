@@ -126,14 +126,49 @@
 //  .repeat()
 
 // =======>>> Destructuring objects:
-const organisms = {
-    marine   :"vertebrates",
-    freshwater :"Planeria",
-    both  : "hydra"
-};
+// const organisms = {
+//     marine   :"vertebrates",
+//     freshwater :"Planeria",
+//     both  : "hydra"
+// };
 
 // const {marine,freshwater,both} = organisms;
 
 // ======>>> Destructuring arrays:
-const earthlings= ["grass" , "goat" , "lion" , "man" , "hippo" , "crow"];
-const [producer , herbivore , carnivore , ...omnivore] = earthlings;
+// const earthlings= ["grass" , "goat" , "lion" , "man" , "hippo" , "crow"];
+// const [producer , herbivore , carnivore , ...omnivore] = earthlings;
+
+// ======>>> Swaping Variables:
+// let kind = "Fatima";
+// let benign = "Ayesha";
+// console.log(kind);
+// [kind,benign] = [benign,kind];
+// console.log (kind);
+
+// =======>>>  For of loop
+// function addUpNumbers (){
+// let total=0;
+// for(num of arguments){
+// total+=num    
+// }
+// console.log(total);
+// return total;
+// };
+// addUpNumbers(1,2,5,3,6,66,89,54);
+
+// const name = "Noor Fatima";
+// for (char of name){
+//     console.log(char); 
+// };
+
+// ======>>> for in loop with objects
+const orange = {
+   color : "orange",
+   size :"large",
+   weight : 100,
+   citrus : "none"
+};
+for (const prop in orange){
+    const value= orange[prop];
+    console.log(value,prop);
+}
