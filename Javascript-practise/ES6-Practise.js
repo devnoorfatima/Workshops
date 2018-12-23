@@ -178,3 +178,16 @@
 //     const value= orange[prop];
 //     console.log(value,prop);
 // }
+
+// ======>>> spread(...)
+// const inventors = ["Aristotle","Socretes","Pluto"];
+// const newInventors = ["Einstein","Newton"];
+//  inventors.push(...newInventors);
+//  console.log(inventors);
+
+// Using spread in a function:
+const name = ["Noor ","Fatima"];
+function sayHi(first,last){
+alert(`Hey there ${first} ${last}.`);
+};
+sayHi(...name);
