@@ -186,8 +186,16 @@
 //  console.log(inventors);
 
 // Using spread in a function:
-const name = ["Noor ","Fatima"];
-function sayHi(first,last){
-alert(`Hey there ${first} ${last}.`);
-};
-sayHi(...name);
+// const name = ["Noor ","Fatima"];
+// function sayHi(first,last){
+// alert(`Hey there ${first} ${last}.`);
+// };
+// sayHi(...name);
+
+// ======>>>  Symbols:
+const classroom = {
+    [Symbol("Mark")] : {grade : 12, gender : "male"},
+    [Symbol("Prin")] : {grade : 11, gender : "male"},
+    [Symbol("Mark")] : {grade : 12, gender : "female"}
+}
+console.log(classroom);
