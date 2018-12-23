@@ -161,14 +161,20 @@
 //     console.log(char); 
 // };
 
+// Numericals are not iterable
+// const number = "twenty";
+// for (char of number){
+//     console.log(char);
+// }
+
 // ======>>> for in loop with objects
-const orange = {
-   color : "orange",
-   size :"large",
-   weight : 100,
-   citrus : "none"
-};
-for (const prop in orange){
-    const value= orange[prop];
-    console.log(value,prop);
-}
+// const orange = {
+//    color : "orange",
+//    size :"large",
+//    weight : 100,
+//    citrus : "none"
+// };
+// for (const prop in orange){
+//     const value= orange[prop];
+//     console.log(value,prop);
+// }
