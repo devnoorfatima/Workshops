@@ -193,9 +193,21 @@
 // sayHi(...name);
 
 // ======>>>  Symbols:
-const classroom = {
-    [Symbol("Mark")] : {grade : 12, gender : "male"},
-    [Symbol("Prin")] : {grade : 11, gender : "male"},
-    [Symbol("Mark")] : {grade : 12, gender : "female"}
+// const classroom = {
+//     [Symbol("Mark")] : {grade : 12, gender : "male"},
+//     [Symbol("Prin")] : {grade : 11, gender : "male"},
+//     [Symbol("Mark")] : {grade : 12, gender : "female"}
+// }
+// console.log(classroom);
+
+// ======>>> Prototypal inheritance:
+function Dog (name,breed){
+    this.name = name;
+    this.breed = breed;
 }
-console.log(classroom);
+Dog.prototype.bark = function (){
+    console.log(`Woof! Woof! My name is ${this.name}.And my breed is ${this.breed}.`);
+}
+
+const fozzy = new Dog ("fozzy" , "mutt");
+const mozzet = new Dog ("mozzet" , "brat");
