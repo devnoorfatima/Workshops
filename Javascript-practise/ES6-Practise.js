@@ -230,31 +230,39 @@
 // const sunny = new Dog("sunny", "brat");
 
 // ======>>> Extending a class:
-class Animal {
-    constructor(name) {
-        this.name = name;
-        this.thirst = 100;
-        this.belly = [];
-    }
-    drink(){
-        this.thirst -= 10;
-        return this.thirst;
-    }
-    eat(food){
-        this.belly.push(food);
-        return this.belly;
-    }
-}
- class Cat extends Animal{
-     constructor(name,breed){
-         super(name);
-         this.breed = breed;
-     }
-      cuddle(){
-          console.log(`Blossom is a ${this.breed} cat.`)
-      }   
-    }
+// class Animal {
+//     constructor(name) {
+//         this.name = name;
+//         this.thirst = 100;
+//         this.belly = [];
+//     }
+//     drink(){
+//         this.thirst -= 10;
+//         return this.thirst;
+//     }
+//     eat(food){
+//         this.belly.push(food);
+//         return this.belly;
+//     }
+// }
+//  class Cat extends Animal{
+//      constructor(name,breed){
+//          super(name);
+//          this.breed = breed;
+//      }
+//       cuddle(){
+//           console.log(`Blossom is a ${this.breed} cat.`)
+//       }   
+//     }
  
 
-const rhino = new Animal("rhino");
-const blossom = new Cat("blossom","Russian");
+// const rhino = new Animal("rhino");
+// const blossom = new Cat("blossom","Russian");
+
+// ======>>> Generators:
+function* listPeople(){
+    yield "Dave";
+    yield "Ava";
+    yield "Mousie";
+}
+const people = listPeople(); 
