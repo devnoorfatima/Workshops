@@ -201,13 +201,60 @@
 // console.log(classroom);
 
 // ======>>> Prototypal inheritance:
-function Dog (name,breed){
-    this.name = name;
-    this.breed = breed;
-}
-Dog.prototype.bark = function (){
-    console.log(`Woof! Woof! My name is ${this.name}.And my breed is ${this.breed}.`);
-}
+// function Dog (name,breed){
+//     this.name = name;
+//     this.breed = breed;
+// }
+// Dog.prototype.bark = function (){
+//     console.log(`Woof! Woof! My name is ${this.name}.And my breed is ${this.breed}.`);
+// }
 
-const fozzy = new Dog ("fozzy" , "mutt");
-const mozzet = new Dog ("mozzet" , "brat");
+// const fozzy = new Dog ("fozzy" , "mutt");
+// const mozzet = new Dog ("mozzet" , "brat");
+
+// ======>>> Class :
+// class Dog {
+//     constructor(name, breed) {
+//         this.name = name;
+//         this.breed = breed;
+//     }
+//     bark() {
+//         console.log(`${this.name} is a ${this.breed} type of dog.`)
+//     }
+//     cuddle(){
+//         console.log("I Love my owner")
+//     }
+// }
+
+// const snickers = new Dog("snickers", "mutt");
+// const sunny = new Dog("sunny", "brat");
+
+// ======>>> Extending a class:
+class Animal {
+    constructor(name) {
+        this.name = name;
+        this.thirst = 100;
+        this.belly = [];
+    }
+    drink(){
+        this.thirst -= 10;
+        return this.thirst;
+    }
+    eat(food){
+        this.belly.push(food);
+        return this.belly;
+    }
+}
+ class Cat extends Animal{
+     constructor(name,breed){
+         super(name);
+         this.breed = breed;
+     }
+      cuddle(){
+          console.log(`Blossom is a ${this.breed} cat.`)
+      }   
+    }
+ 
+
+const rhino = new Animal("rhino");
+const blossom = new Cat("blossom","Russian");
