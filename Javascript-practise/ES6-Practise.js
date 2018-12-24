@@ -260,9 +260,26 @@
 // const blossom = new Cat("blossom","Russian");
 
 // ======>>> Generators:
-function* listPeople(){
-    yield "Dave";
-    yield "Ava";
-    yield "Mousie";
-}
-const people = listPeople(); 
+// function* listPeople(){
+//     yield "Dave";
+//     yield "Ava";
+//     yield "Mousie";
+// }
+// const people = listPeople(); 
+
+// ======>>> Proxies:
+// const person = {name:"Burger"};
+// const personProxy = new Proxy ( person, {
+// get(target,name){
+//     return target[name].toUpperCase();
+// }
+// });
+// personProxy.name = "Hamburger";
+
+// const person = {name:"Tater"};
+// const personProxy = new Proxy (person,{
+//     get(target,name){
+//         return target[name].toUpperCase();
+//     }
+// });
+// personProxy.name ="Rusty";
