@@ -285,23 +285,44 @@
 // personProxy.name ="Rusty";
 
 // ======>>> Sets :
-const person = new Set();
-person.add("Aimy");
-person.add("Fats");
-person.add("Dozzy"); 
-for (const people of person){
-    console.log(people);
-}
+// const person = new Set();
+// person.add("Aimy");
+// person.add("Fats");
+// person.add("Dozzy"); 
+// for (const people of person){
+//     console.log(people);
+// }
  
-//===> Array to set:
-const dogs = ["Snickers" , "Sunny"];
-const dogSet =  new Set(dogs);
-console.log(dogSet);
+// //===> Array to set:
+// const dogs = ["Snickers" , "Sunny"];
+// const dogSet =  new Set(dogs);
+// console.log(dogSet);
 
-// ===> Weak Sets:
-let cat1 = {name:"Blossom", age:3};
-let cat2 = {name:"Ginger", age:2};
-const catSet =new WeakSet ([cat1 , cat2]);
-console.log(catSet);
-cat1 = null;
-console.log(catSet);
+// // ===> Weak Sets:
+// let cat1 = {name:"Blossom", age:3};
+// let cat2 = {name:"Ginger", age:2};
+// const catSet =new WeakSet ([cat1 , cat2]);
+// console.log(catSet);
+// cat1 = null;
+// console.log(catSet);
+
+// ======>>> Maps:
+const barbie = new Map();
+barbie.set ("Ariel");
+barbie.set ("Jasmine");
+barbie.set ("Cinderella");
+for (person of barbie){
+    console.log(person);
+}
+// ===> Weak Maps:
+let iceCreams1 = {name:"Roasted-Almonds"};
+let iceCreams2 = {name:"Butterscotch-Crunch"};
+
+const strong = new Map();
+const weak = new WeakMap();
+
+strong.set(iceCreams1,"It is the best.");
+weak.set(iceCreams2,"It is the 2nd best.");
+
+iceCreams1 = null;
+iceCreams2 = null;
