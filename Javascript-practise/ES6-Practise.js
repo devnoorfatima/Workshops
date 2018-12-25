@@ -283,3 +283,25 @@
 //     }
 // });
 // personProxy.name ="Rusty";
+
+// ======>>> Sets :
+const person = new Set();
+person.add("Aimy");
+person.add("Fats");
+person.add("Dozzy"); 
+for (const people of person){
+    console.log(people);
+}
+ 
+//===> Array to set:
+const dogs = ["Snickers" , "Sunny"];
+const dogSet =  new Set(dogs);
+console.log(dogSet);
+
+// ===> Weak Sets:
+let cat1 = {name:"Blossom", age:3};
+let cat2 = {name:"Ginger", age:2};
+const catSet =new WeakSet ([cat1 , cat2]);
+console.log(catSet);
+cat1 = null;
+console.log(catSet);
