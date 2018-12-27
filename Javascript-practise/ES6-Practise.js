@@ -26,21 +26,21 @@
 // console.log(winner);
 // points = 600;
 
-// // Const can't be changed however it's values can be changed for instance:
+//Const can't be changed however it's values can be changed for instance:
 
 // const person = {
 //     name : "Noor",
 //     age : 17
 // } ;
 // person.age = 20;  
-// // age changed
+// age changed
 
-// =======>>> Arrow Functions =>
+// =======>>> Arrow Functions (=>)
 // var names = ["max" , "dom" , "fats"];
 // const fullName = names.map(function(name){
 // return (name + "well");
 // });
-// // this is an arrow function
+// this is an arrow function
 // var names = ["max" , "dom" , "fats"];
 // const fullName = names.map(name => {
 // return (name + "well");
@@ -55,10 +55,14 @@
 // const totalBill = calculateBill (100 , undefined ,0.15);
 // console.log(totalBill);
 
+// =======>>> Exercise -1:
+
 // const numbers = [3,62,234,7,23,74,23,76,92];
 // const num = numbers.filter (numbers => numbers >= 70);
 // console.log(num);
-// Exercise - 2
+
+// =======>>> Exercise - 2:
+
 // const items =Array.from(document.querySelectorAll("[data-time]"));
 // debugger;
 // console.log(items);
@@ -71,12 +75,14 @@
 // .reduce((totalTime, seconds) => totalTime + seconds,0);
 // console.log(filtered); 
 
-// const age = 25;
+// =======>>> Template Literals:
+
+// const age = 5;
 // const name = "Jerry";
 // const sentence = ` My mouse ${name} is ${age} years old`;
 // console.log(sentence);
 
-// =======>>> Tagged Template Practice
+// =======>>> Tagged Template:
 
 // function highlight (strings, ...values){
 //  let str = "";
@@ -86,7 +92,7 @@
 // return str;
 // }
 
-// const age = 25;
+// const age = 5;
 // const name = "Jerry";
 // const sentence = highlight` My mouse ${name} is ${age} years old`;
 // document.body.innerHTML=sentence;
@@ -196,7 +202,7 @@
 // const classroom = {
 //     [Symbol("Mark")] : {grade : 12, gender : "male"},
 //     [Symbol("Prin")] : {grade : 11, gender : "male"},
-//     [Symbol("Mark")] : {grade : 12, gender : "female"}
+//     [Symbol("Kim")] : {grade : 12, gender : "female"}
 // }
 // console.log(classroom);
 
@@ -307,22 +313,22 @@
 // console.log(catSet);
 
 // ======>>> Maps:
-const barbie = new Map();
-barbie.set ("Ariel");
-barbie.set ("Jasmine");
-barbie.set ("Cinderella");
-for (person of barbie){
-    console.log(person);
-}
-// ===> Weak Maps:
-let iceCreams1 = {name:"Roasted-Almonds"};
-let iceCreams2 = {name:"Butterscotch-Crunch"};
+// const barbie = new Map();
+// barbie.set ("Ariel");
+// barbie.set ("Jasmine");
+// barbie.set ("Cinderella");
+// for (person of barbie){
+//     console.log(person);
+// }
+// // ===> Weak Maps:
+// let iceCreams1 = {name:"Roasted-Almonds"};
+// let iceCreams2 = {name:"Butterscotch-Crunch"};
 
-const strong = new Map();
-const weak = new WeakMap();
+// const strong = new Map();
+// const weak = new WeakMap();
 
-strong.set(iceCreams1,"It is the best.");
-weak.set(iceCreams2,"It is the 2nd best.");
+// strong.set(iceCreams1,"It is the best.");
+// weak.set(iceCreams2,"It is the 2nd best.");
 
-iceCreams1 = null;
-iceCreams2 = null;
+// iceCreams1 = null;
+// iceCreams2 = null;
