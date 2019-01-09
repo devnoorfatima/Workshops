@@ -113,3 +113,42 @@ console.log(seven + three);
 // Add your code below this line
 console.log(typeof seven);
 console.log(typeof three);
+
+// ========>>> Basic Data structures
+let yourArray = ["hello", 0, true, false, "hurrah!"];
+
+// pop and shift
+function popShift(arr) {
+    let popped = arr.pop();
+    let shifted = arr.shift();
+    return [shifted, popped];
+  }
+  console.log(popShift(['challenge', 'is', 'not', 'complete']));
+
+//   splice function
+  function sumOfTen(arr) {
+    arr.splice(1,2);
+    return arr.reduce((a, b) => a + b);
+  }
+  console.log(sumOfTen([2, 5, 1, 5, 2, 1]));
+
+//   Using splice in place of unshift
+  function htmlColorNames(arr) {
+    arr.splice(0,2 ,"DarkSalmon","BlanchedAlmond");
+    return arr;
+  } 
+  console.log(htmlColorNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 'PaleTurqoise', 'FireBrick']));
+
+//   slice function
+  function forecast(arr) { 
+    return arr.slice(2,4);
+  }
+  console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));
+
+//   Spread function
+  function spreadOut() {
+    let fragment = ['to', 'code'];
+    let sentence= ['learning', ...fragment,'is','fun'] ;
+    return sentence;
+  }
+  console.log(spreadOut());
