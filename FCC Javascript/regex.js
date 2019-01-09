@@ -153,77 +153,97 @@
 //   }
 //   console.log(spreadOut());
 
-//   Nested Arrays
-  let myNestedArray = [
-    ['unshift', false, 1, 2, 3, 'complex', 'nested'],
-    ['loop', 'shift', 6, 7, 1000, 'method'],
-    ['concat', false, true, 'spread', 'array',["deep"]],
-    ['mutate', 1327.98, 'splice', 'slice', 'push', [["deeper"]]],
-    ['iterate', 1.3849, 7, '8.4876', 'arbitrary', 'depth', [[["deepest"]]] ]
-  ];
+// //   Nested Arrays
+//   let myNestedArray = [
+//     ['unshift', false, 1, 2, 3, 'complex', 'nested'],
+//     ['loop', 'shift', 6, 7, 1000, 'method'],
+//     ['concat', false, true, 'spread', 'array',["deep"]],
+//     ['mutate', 1327.98, 'splice', 'slice', 'push', [["deeper"]]],
+//     ['iterate', 1.3849, 7, '8.4876', 'arbitrary', 'depth', [[["deepest"]]] ]
+//   ];
 
-//  Adding new key value pairs to a javascript object
-  let foods = {
-    apples: 25,
-    oranges: 32,
-    plums: 28
-  };
-  foods ['bananas'] = 13;
-  foods ['grapes'] = 35;
-  foods ['strawberries'] = 27;
-  console.log(foods);
-
-
-//   Nested objects
-  let userActivity = {
-    id: 23894201352,
-    date: 'January 1, 2017',
-    data: {
-      totalUsers: 51,
-      online: 42
-    }
-  };
-  userActivity.data.online = 45;
-  console.log(userActivity);
-
-//   Delete items
-  let foods = {
-    apples: 25,
-    oranges: 32,
-    plums: 28,
-    bananas: 13,
-    grapes: 35,
-    strawberries: 27
-  };
-  delete foods.oranges;
-  delete foods.plums;
-  delete foods.strawberries;
-  console.log(foods);
+// //  Adding new key value pairs to a javascript object
+//   let foods = {
+//     apples: 25,
+//     oranges: 32,
+//     plums: 28
+//   };
+//   foods ['bananas'] = 13;
+//   foods ['grapes'] = 35;
+//   foods ['strawberries'] = 27;
+//   console.log(foods);
 
 
-//   hasOwnProperty function
-  let users = {
-    Alan: {
-      age: 27,
-      online: true
-    },
-    Jeff: {
-      age: 32,
-      online: true
-    },
-    Sarah: {
-      age: 48,
-      online: true
-    },
-    Ryan: {
-      age: 19,
-      online: true
-    }
-  };
+// //   Nested objects
+//   let userActivity = {
+//     id: 23894201352,
+//     date: 'January 1, 2017',
+//     data: {
+//       totalUsers: 51,
+//       online: 42
+//     }
+//   };
+//   userActivity.data.online = 45;
+//   console.log(userActivity);
+
+// //   Delete items
+//   let foods = {
+//     apples: 25,
+//     oranges: 32,
+//     plums: 28,
+//     bananas: 13,
+//     grapes: 35,
+//     strawberries: 27
+//   };
+//   delete foods.oranges;
+//   delete foods.plums;
+//   delete foods.strawberries;
+//   console.log(foods);
+
+
+// //   hasOwnProperty function
+//   let users = {
+//     Alan: {
+//       age: 27,
+//       online: true
+//     },
+//     Jeff: {
+//       age: 32,
+//       online: true
+//     },
+//     Sarah: {
+//       age: 48,
+//       online: true
+//     },
+//     Ryan: {
+//       age: 19,
+//       online: true
+//     }
+//   };
   
-  function isEveryoneHere(obj) {
-  if(users.hasOwnProperty( "Alan", "Jeff", "Sarah","Ryan")){
-    return true
-  }return false;
+//   function isEveryoneHere(obj) {
+//   if(users.hasOwnProperty( "Alan", "Jeff", "Sarah","Ryan")){
+//     return true
+//   }return false;
+//   }
+//   console.log(isEveryoneHere(users));
+
+// BASIC ALGORITHMS:
+// =======>>> 1
+function convertToF(celsius) {
+    let fahrenheit = celsius * 9/5 + 32 ;
+    return fahrenheit;
   }
-  console.log(isEveryoneHere(users));
+  
+  convertToF(30);
+
+// ======>>> 2
+
+  function reverseString(str) {
+    const splitStr = str.split("");
+    const reverseStr = splitStr.reverse();
+    const joinStr = reverseStr.join("");
+     return joinStr;
+   }
+   
+   reverseString("hello");
