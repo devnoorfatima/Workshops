@@ -229,21 +229,50 @@
 //   console.log(isEveryoneHere(users));
 
 // BASIC ALGORITHMS:
-// =======>>> 1
-function convertToF(celsius) {
-    let fahrenheit = celsius * 9/5 + 32 ;
-    return fahrenheit;
-  }
+
+// function convertToF(celsius) {
+//     let fahrenheit = celsius * 9/5 + 32 ;
+//     return fahrenheit;
+//   }
   
-  convertToF(30);
+//   convertToF(30);
 
-// ======>>> 2
-
-  function reverseString(str) {
-    const splitStr = str.split("");
-    const reverseStr = splitStr.reverse();
-    const joinStr = reverseStr.join("");
-     return joinStr;
-   }
+//   function reverseString(str) {
+//     const splitStr = str.split("");
+//     const reverseStr = splitStr.reverse();
+//     const joinStr = reverseStr.join("");
+//      return joinStr;
+//    }
    
-   reverseString("hello");
+//    reverseString("hello");
+
+function findLongestWordLength(str) {
+  var arr = str.split(' ');
+  var max = 0;
+  for(var i = 0; i < arr.length; i++){
+    if(arr[i].length > max){
+      max = arr[i].length;
+    }
+  } 
+  return max;
+}
+
+findLongestWordLength("The quick brown fox jumped over the lazy dog");
+
+
+function largestOfFour(arr) {
+  var results = [];
+  for (var n = 0; n < arr.length; n++) {
+    var largestNumber = arr[n][0];
+    for (var i = 1; i < arr[n].length; i++) {
+      if (arr[n][i] > largestNumber) {
+        largestNumber = arr[n][i];
+      }
+    }
+
+    results[n] = largestNumber;
+  }
+
+  return results;
+}
+
