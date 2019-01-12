@@ -246,84 +246,125 @@
    
 //    reverseString("hello");
 
-function findLongestWordLength(str) {
-  var arr = str.split(' ');
-  var max = 0;
-  for(var i = 0; i < arr.length; i++){
-    if(arr[i].length > max){
-      max = arr[i].length;
-    }
-  } 
-  return max;
+// function findLongestWordLength(str) {
+//   var arr = str.split(' ');
+//   var max = 0;
+//   for(var i = 0; i < arr.length; i++){
+//     if(arr[i].length > max){
+//       max = arr[i].length;
+//     }
+//   } 
+//   return max;
+// }
+
+// findLongestWordLength("The quick brown fox jumped over the lazy dog");
+
+
+// function largestOfFour(arr) {
+//   var results = [];
+//   for (var n = 0; n < arr.length; n++) {
+//     var largestNumber = arr[n][0];
+//     for (var i = 1; i < arr[n].length; i++) {
+//       if (arr[n][i] > largestNumber) {
+//         largestNumber = arr[n][i];
+//       }
+//     }
+
+//     results[n] = largestNumber;
+//   }
+
+//   return results;
+// }
+
+
+
+// function confirmEnding(str, target) {
+//   return str.slice(str.length - target.length) === target;
+// }
+
+// confirmEnding("Bastian", "n");
+
+
+
+// function repeatStringNumTimes(str, num) {
+//   // repeat after me
+// if(num <= 0){
+//   return "";
+// }
+// if(num === 1){
+//   return str;
+// }
+// else return str + repeatStringNumTimes(str, num -1);
+// }
+// repeatStringNumTimes("abc", 3);
+
+
+// function findElement(arr, func) {
+//   let num = 0;
+//   for(var i = 0; i < arr.length; i++) {
+//     num = arr[i];
+//     if (func(num)) {
+//       return num;
+//     }
+//   } 
+//   return undefined;
+// }
+
+
+// function booWho(bool) {
+//   return typeof bool === 'boolean';
+// }
+
+// // test here
+// booWho(null);
+
+
+// function titleCase(str) {
+//   var convertToArray = str.toLowerCase().split(" ");
+//   var result = convertToArray.map(function(val){
+//       return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+//   });
+//   return result.join(" ");
+// }
+// titleCase("I'm a little tea pot");
+
+
+function bouncer(arr) {
+  return arr.filter(Boolean);
 }
+bouncer([7, "ate", "", false, 9]);``
 
-findLongestWordLength("The quick brown fox jumped over the lazy dog");
 
 
-function largestOfFour(arr) {
-  var results = [];
-  for (var n = 0; n < arr.length; n++) {
-    var largestNumber = arr[n][0];
-    for (var i = 1; i < arr[n].length; i++) {
-      if (arr[n][i] > largestNumber) {
-        largestNumber = arr[n][i];
-      }
-    }
+function getIndexToIns(arr, num) {
+  arr.sort(function(a, b) {
+    return a - b;
+  });
 
-    results[n] = largestNumber;
+  for (var a = 0; a < arr.length; a++) {
+    if (arr[a] >= num)
+      return a;
   }
 
-  return results;
+  return arr.length;
 }
 
+function mutation(arr) {
+  var test = arr[1].toLowerCase();
+  var target = arr[0].toLowerCase();
+  for (var i=0;i<test.length;i++) {
+    if (target.indexOf(test[i]) < 0)
+      return false;
+  }
+  return true;
+ }
 
 
-function confirmEnding(str, target) {
-  return str.slice(str.length - target.length) === target;
+ function chunkArrayInGroups(arr, size) {
+  // Break it up.
+  var arr2 = [];
+  for (var i = 0; i < arr.length; i+=size) {
+  arr2.push(arr.slice(i , i+size));
+  }
+  return arr2;
 }
-
-confirmEnding("Bastian", "n");
-
-
-
-function repeatStringNumTimes(str, num) {
-  // repeat after me
-if(num <= 0){
-  return "";
-}
-if(num === 1){
-  return str;
-}
-else return str + repeatStringNumTimes(str, num -1);
-}
-repeatStringNumTimes("abc", 3);
-
-
-function findElement(arr, func) {
-  let num = 0;
-  for(var i = 0; i < arr.length; i++) {
-    num = arr[i];
-    if (func(num)) {
-      return num;
-    }
-  } 
-  return undefined;
-}
-
-
-function booWho(bool) {
-  return typeof bool === 'boolean';
-}
-
-// test here
-booWho(null);
-
-
-function titleCase(str) {
-  var convertToArray = str.toLowerCase().split(" ");
-  var result = convertToArray.map(function(val){
-      return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
-  });
-  return result.join(" ");
-}
-titleCase("I'm a little tea pot");
