@@ -276,3 +276,54 @@ function largestOfFour(arr) {
   return results;
 }
 
+
+
+function confirmEnding(str, target) {
+  return str.slice(str.length - target.length) === target;
+}
+
+confirmEnding("Bastian", "n");
+
+
+
+function repeatStringNumTimes(str, num) {
+  // repeat after me
+if(num <= 0){
+  return "";
+}
+if(num === 1){
+  return str;
+}
+else return str + repeatStringNumTimes(str, num -1);
+}
+repeatStringNumTimes("abc", 3);
+
+
+function findElement(arr, func) {
+  let num = 0;
+  for(var i = 0; i < arr.length; i++) {
+    num = arr[i];
+    if (func(num)) {
+      return num;
+    }
+  } 
+  return undefined;
+}
+
+
+function booWho(bool) {
+  return typeof bool === 'boolean';
+}
+
+// test here
+booWho(null);
+
+
+function titleCase(str) {
+  var convertToArray = str.toLowerCase().split(" ");
+  var result = convertToArray.map(function(val){
+      return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+  });
+  return result.join(" ");
+}
+titleCase("I'm a little tea pot");
