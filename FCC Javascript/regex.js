@@ -329,42 +329,80 @@
 // titleCase("I'm a little tea pot");
 
 
-function bouncer(arr) {
-  return arr.filter(Boolean);
+// function bouncer(arr) {
+//   return arr.filter(Boolean);
+// }
+// bouncer([7, "ate", "", false, 9]);``
+
+
+
+// function getIndexToIns(arr, num) {
+//   arr.sort(function(a, b) {
+//     return a - b;
+//   });
+
+//   for (var a = 0; a < arr.length; a++) {
+//     if (arr[a] >= num)
+//       return a;
+//   }
+
+//   return arr.length;
+// }
+
+// function mutation(arr) {
+//   var test = arr[1].toLowerCase();
+//   var target = arr[0].toLowerCase();
+//   for (var i=0;i<test.length;i++) {
+//     if (target.indexOf(test[i]) < 0)
+//       return false;
+//   }
+//   return true;
+//  }
+
+
+//  function chunkArrayInGroups(arr, size) {
+//   // Break it up.
+//   var arr2 = [];
+//   for (var i = 0; i < arr.length; i+=size) {
+//   arr2.push(arr.slice(i , i+size));
+//   }
+//   return arr2;
+// }
+
+
+//  Object-oriented-Programming:
+function Dog() {
+  this.name = "Rupert";
+  this.color = "brown";
+  this.numLegs = 4;
 }
-bouncer([7, "ate", "", false, 9]);``
+let hound = new Dog();
 
 
+function Dog(name,color) {
+  this.name = name;
+  this.color = color;
+  this.numLegs = 4;
+}
+let terrier = new Dog("spot","black");
 
-function getIndexToIns(arr, num) {
-  arr.sort(function(a, b) {
-    return a - b;
-  });
+function House(numBedrooms) {
+  this.numBedrooms = numBedrooms;
+}
+let myHouse = new House(5);
+myHouse instanceof House;
 
-  for (var a = 0; a < arr.length; a++) {
-    if (arr[a] >= num)
-      return a;
-  }
 
-  return arr.length;
+function Bird(name) {
+  this.name = name;
+  this.numLegs = 2;
 }
 
-function mutation(arr) {
-  var test = arr[1].toLowerCase();
-  var target = arr[0].toLowerCase();
-  for (var i=0;i<test.length;i++) {
-    if (target.indexOf(test[i]) < 0)
-      return false;
+let canary = new Bird("Tweety");
+let ownProps = [];
+for (let property in canary) {
+  if(canary.hasOwnProperty(property)) {
+    ownProps.push(property);
   }
-  return true;
- }
-
-
- function chunkArrayInGroups(arr, size) {
-  // Break it up.
-  var arr2 = [];
-  for (var i = 0; i < arr.length; i+=size) {
-  arr2.push(arr.slice(i , i+size));
-  }
-  return arr2;
 }
+console.log(ownProps);
