@@ -461,73 +461,130 @@
 // };
 
 
-function Dog(name) {
-  this.name = name;
-}
-let beagle = new Dog("Snoopy");
-Dog.prototype.isPrototypeOf(beagle);
-function Dog(name) {
-  this.name = name;
-}
-let beagle = new Dog("Snoopy");
-Dog.prototype.isPrototypeOf(beagle);  // => true
-Object.prototype.isPrototypeOf(Dog.prototype);
+// function Dog(name) {
+//   this.name = name;
+// }
+// let beagle = new Dog("Snoopy");
+// Dog.prototype.isPrototypeOf(beagle);
+// function Dog(name) {
+//   this.name = name;
+// }
+// let beagle = new Dog("Snoopy");
+// Dog.prototype.isPrototypeOf(beagle);  // => true
+// Object.prototype.isPrototypeOf(Dog.prototype);
 
-function Animal() { }
+// function Animal() { }
 
-Animal.prototype = {
-  constructor: Animal,
-  eat: function() {
-    console.log("nom nom nom");
+// Animal.prototype = {
+//   constructor: Animal,
+//   eat: function() {
+//     console.log("nom nom nom");
+//   }
+// };
+
+// function Dog() { }
+// Dog.prototype = Object.create(Animal.prototype);
+
+// let beagle = new Dog();
+// beagle.eat();  
+
+
+// function Animal() { }
+// function Bird() { }
+// function Dog() { }
+
+// Bird.prototype = Object.create(Animal.prototype);
+// Dog.prototype = Object.create(Animal.prototype);
+// Bird.prototype.constructor = Bird;
+// Dog.prototype.constructor = Dog;
+
+// let duck = new Bird();
+// let beagle = new Dog();
+
+
+// function Animal() { }
+// Animal.prototype.eat = function() { console.log("nom nom nom"); };
+// function Dog() { }
+// Dog.prototype = Object.create(Animal.prototype);
+// Dog.prototype.constructor = Dog;
+// Dog.prototype.eat = function() {
+//   console.log("nom nom nom");
+// };
+
+// Dog.prototype.bark = function() {
+//   console.log("Woof!");
+// };
+// let beagle = new Dog();
+// beagle.eat(); 
+// beagle.bark(); 
+
+
+// function Bird() { }
+
+// Bird.prototype.fly = function() { return "I am flying!"; };
+
+// function Penguin() { }
+// Penguin.prototype = Object.create(Bird.prototype);
+// Penguin.prototype.constructor = Penguin;
+// Penguin.prototype.fly = function() {
+//   return "Alas, this is a flightless bird.";
+// };
+// let penguin = new Penguin();
+// console.log(penguin.fly());
+
+
+let bird = {
+  name: "Donald",
+  numLegs: 2
+};
+let boat = {
+  name: "Warrior",
+  type: "race-boat"
+};
+let glideMixin = function(obj) {
+  obj.glide = function() {
+    console.log("Gliding, wooosh!");
   }
 };
-
-function Dog() { }
-Dog.prototype = Object.create(Animal.prototype);
-
-let beagle = new Dog();
-beagle.eat();  
+glideMixin(bird);
+glideMixin(boat);
 
 
-function Animal() { }
-function Bird() { }
-function Dog() { }
+function Bird() {
+  let weight = 15;
+  this.getWeight = function() { 
+   return weight;
+ }; 
+}
 
-Bird.prototype = Object.create(Animal.prototype);
-Dog.prototype = Object.create(Animal.prototype);
-Bird.prototype.constructor = Bird;
-Dog.prototype.constructor = Dog;
-
-let duck = new Bird();
-let beagle = new Dog();
+// IIFE:
+(function() {
+  console.log("A cozy nest is ready");
+})(); 
 
 
-function Animal() { }
-Animal.prototype.eat = function() { console.log("nom nom nom"); };
-function Dog() { }
-Dog.prototype = Object.create(Animal.prototype);
-Dog.prototype.constructor = Dog;
-Dog.prototype.eat = function() {
-  console.log("nom nom nom");
+
+let isCuteMixin = function(obj) {
+  obj.isCute = function() {
+    return true;
+  };
 };
-
-Dog.prototype.bark = function() {
-  console.log("Woof!");
+let singMixin = function(obj) {
+  obj.sing = function() {
+    console.log("Singing to an awesome tune");
+  };
 };
-let beagle = new Dog();
-beagle.eat(); 
-beagle.bark(); 
-
-
-function Bird() { }
-
-Bird.prototype.fly = function() { return "I am flying!"; };
-
-function Penguin() { }
-Penguin.prototype = Object.create(Bird.prototype);
-Penguin.prototype.constructor = Penguin;
-Penguin.prototype.fly = function() {
-  return "Alas, this is a flightless bird.";
-};
-let penguin = new Penguin();
-console.log(penguin.fly());
+let funModule = (function () {
+  return {
+    isCuteMixin: function (obj) {
+      obj.glide = function() {
+        console.log("Gliding on the water");
+      };
+    },
+    singMixin: function(obj) {
+      obj.fly = function() {
+        console.log("Flying, wooosh!");
+      };
+    }
+  }
+}) (); 
