@@ -407,58 +407,58 @@
 // }
 // console.log(ownProps);
 
-function Dog(name) {
-  this.name = name;
-}
-Dog.prototype.numLegs = 4;
+// function Dog(name) {
+//   this.name = name;
+// }
+// Dog.prototype.numLegs = 4;
 
-let beagle = new Dog("Snoopy");
+// let beagle = new Dog("Snoopy");
 
-function Dog(name) {
-  this.name = name;
-}
+// function Dog(name) {
+//   this.name = name;
+// }
 
-Dog.prototype.numLegs = 4;
+// Dog.prototype.numLegs = 4;
 
-let beagle = new Dog("Snoopy");
+// let beagle = new Dog("Snoopy");
 
-let ownProps = [];
-let prototypeProps = []; 
-for (let property in beagle) {
-  if(beagle.hasOwnProperty(property)) {
-    ownProps.push(property);
-  } else {
-    prototypeProps.push(property);
-  }
-}
-
-
-function Dog(name) {
-  this.name = name;
-}
-function joinDogFraternity(candidate) {
-   if (candidate.constructor === Dog) {
-    return true;
-  } else {
-    return false;
-  }
-}
+// let ownProps = [];
+// let prototypeProps = []; 
+// for (let property in beagle) {
+//   if(beagle.hasOwnProperty(property)) {
+//     ownProps.push(property);
+//   } else {
+//     prototypeProps.push(property);
+//   }
+// }
 
 
+// function Dog(name) {
+//   this.name = name;
+// }
+// function joinDogFraternity(candidate) {
+//    if (candidate.constructor === Dog) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 
-function Dog(name) {
-  this.name = name; 
-}
 
-Dog.prototype = {
-   numLegs: 4, 
-  eat: function() {
-    console.log("nom nom nom");
-  },
-  describe: function() {
-    console.log("My name is " + this.name);
-  }
-};
+
+// function Dog(name) {
+//   this.name = name; 
+// }
+
+// Dog.prototype = {
+//    numLegs: 4, 
+//   eat: function() {
+//     console.log("nom nom nom");
+//   },
+//   describe: function() {
+//     console.log("My name is " + this.name);
+//   }
+// };
 
 
 function Dog(name) {
@@ -466,13 +466,68 @@ function Dog(name) {
 }
 let beagle = new Dog("Snoopy");
 Dog.prototype.isPrototypeOf(beagle);
-
 function Dog(name) {
   this.name = name;
 }
-
 let beagle = new Dog("Snoopy");
-
 Dog.prototype.isPrototypeOf(beagle);  // => true
 Object.prototype.isPrototypeOf(Dog.prototype);
 
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+function Dog() { }
+Dog.prototype = Object.create(Animal.prototype);
+
+let beagle = new Dog();
+beagle.eat();  
+
+
+function Animal() { }
+function Bird() { }
+function Dog() { }
+
+Bird.prototype = Object.create(Animal.prototype);
+Dog.prototype = Object.create(Animal.prototype);
+Bird.prototype.constructor = Bird;
+Dog.prototype.constructor = Dog;
+
+let duck = new Bird();
+let beagle = new Dog();
+
+
+function Animal() { }
+Animal.prototype.eat = function() { console.log("nom nom nom"); };
+function Dog() { }
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+Dog.prototype.eat = function() {
+  console.log("nom nom nom");
+};
+
+Dog.prototype.bark = function() {
+  console.log("Woof!");
+};
+let beagle = new Dog();
+beagle.eat(); 
+beagle.bark(); 
+
+
+function Bird() { }
+
+Bird.prototype.fly = function() { return "I am flying!"; };
+
+function Penguin() { }
+Penguin.prototype = Object.create(Bird.prototype);
+Penguin.prototype.constructor = Penguin;
+Penguin.prototype.fly = function() {
+  return "Alas, this is a flightless bird.";
+};
+let penguin = new Penguin();
+console.log(penguin.fly());
