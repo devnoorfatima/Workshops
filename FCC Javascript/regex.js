@@ -533,58 +533,140 @@
 // console.log(penguin.fly());
 
 
-let bird = {
-  name: "Donald",
-  numLegs: 2
-};
-let boat = {
-  name: "Warrior",
-  type: "race-boat"
-};
-let glideMixin = function(obj) {
-  obj.glide = function() {
-    console.log("Gliding, wooosh!");
+// let bird = {
+//   name: "Donald",
+//   numLegs: 2
+// };
+// let boat = {
+//   name: "Warrior",
+//   type: "race-boat"
+// };
+// let glideMixin = function(obj) {
+//   obj.glide = function() {
+//     console.log("Gliding, wooosh!");
+//   }
+// };
+// glideMixin(bird);
+// glideMixin(boat);
+
+
+// function Bird() {
+//   let weight = 15;
+//   this.getWeight = function() { 
+//    return weight;
+//  }; 
+// }
+
+// // IIFE:
+// (function() {
+//   console.log("A cozy nest is ready");
+// })(); 
+
+
+
+// let isCuteMixin = function(obj) {
+//   obj.isCute = function() {
+//     return true;
+//   };
+// };
+// let singMixin = function(obj) {
+//   obj.sing = function() {
+//     console.log("Singing to an awesome tune");
+//   };
+// };
+// let funModule = (function () {
+//   return {
+//     isCuteMixin: function (obj) {
+//       obj.glide = function() {
+//         console.log("Gliding on the water");
+//       };
+//     },
+//     singMixin: function(obj) {
+//       obj.fly = function() {
+//         console.log("Flying, wooosh!");
+//       };
+//     }
+//   }
+// }) (); 
+
+
+// =======>>>Functional Programming
+/**
+ * A long process to prepare tea.
+ * @return {string} A cup of tea.
+ **/
+const prepareTea = () => 'greenTea';
+
+/**
+ * Get given number of cups of tea.
+ * @param {number} numOfCups Number of required cups of tea.
+ * @return {Array<string>} Given amount of tea cups.
+ **/
+const getTea = (numOfCups) => {
+  const teaCups = [];
+  
+  for(let cups = 1; cups <= numOfCups; cups += 1) {
+    const teaCup = prepareTea();
+    teaCups.push(teaCup);
   }
+
+  return teaCups;
 };
-glideMixin(bird);
-glideMixin(boat);
 
+// Add your code below this line
 
-function Bird() {
-  let weight = 15;
-  this.getWeight = function() { 
-   return weight;
- }; 
+const tea4TeamFCC = getTea(40); // :(
+
+// Add your code above this line
+
+console.log(tea4TeamFCC);
+
+// tabs is an array of titles of each site open within the window
+var Window = function(tabs) {
+  this.tabs = tabs; // we keep a record of the array inside the object
+};
+
+// When you join two windows into one window
+Window.prototype.join = function (otherWindow) {
+  this.tabs = this.tabs.concat(otherWindow.tabs);
+  return this;
+};
+
+// When you open a new tab at the end
+Window.prototype.tabOpen = function (tab) {
+  this.tabs.push('new tab'); // let's open a new tab for now
+  return this;
+};
+
+// When you close a tab
+Window.prototype.tabClose = function (index) {
+  var tabsBeforeIndex = this.tabs.splice(0, index); // get the tabs before the tab
+  var tabsAfterIndex = this.tabs.splice(index); // get the tabs after the tab
+
+  this.tabs = tabsBeforeIndex.concat(tabsAfterIndex); // join them together 
+  return this;
+ };
+
+// Let's create three browser windows
+var workWindow = new Window(['GMail', 'Inbox', 'Work mail', 'Docs', 'freeCodeCamp']); 
+var socialWindow = new Window(['FB', 'Gitter', 'Reddit', 'Twitter', 'Medium']); 
+var videoWindow = new Window(['Netflix', 'YouTube', 'Vimeo', 'Vine']); 
+var finalTabs = socialWindow
+.tabOpen() 
+.join(videoWindow) 
+.join(workWindow.tabOpen());
+
+alert(finalTabs.tabs);
+
+// the global variable
+var fixedValue = 4;
+
+function incrementer () {
+  // Add your code below this line
+ return fixedValue +1;
+  
+  // Add your code above this line
 }
 
-// IIFE:
-(function() {
-  console.log("A cozy nest is ready");
-})(); 
-
-
-
-let isCuteMixin = function(obj) {
-  obj.isCute = function() {
-    return true;
-  };
-};
-let singMixin = function(obj) {
-  obj.sing = function() {
-    console.log("Singing to an awesome tune");
-  };
-};
-let funModule = (function () {
-  return {
-    isCuteMixin: function (obj) {
-      obj.glide = function() {
-        console.log("Gliding on the water");
-      };
-    },
-    singMixin: function(obj) {
-      obj.fly = function() {
-        console.log("Flying, wooosh!");
-      };
-    }
-  }
-}) (); 
+var newValue = incrementer(); // Should equal 5
+console.log(fixedValue); // Should print 4
