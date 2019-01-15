@@ -591,82 +591,146 @@
 
 
 // =======>>>Functional Programming
-/**
- * A long process to prepare tea.
- * @return {string} A cup of tea.
- **/
-const prepareTea = () => 'greenTea';
+// /**
+//  * A long process to prepare tea.
+//  * @return {string} A cup of tea.
+//  **/
+// const prepareTea = () => 'greenTea';
 
-/**
- * Get given number of cups of tea.
- * @param {number} numOfCups Number of required cups of tea.
- * @return {Array<string>} Given amount of tea cups.
- **/
-const getTea = (numOfCups) => {
-  const teaCups = [];
+// /**
+//  * Get given number of cups of tea.
+//  * @param {number} numOfCups Number of required cups of tea.
+//  * @return {Array<string>} Given amount of tea cups.
+//  **/
+// const getTea = (numOfCups) => {
+//   const teaCups = [];
   
-  for(let cups = 1; cups <= numOfCups; cups += 1) {
-    const teaCup = prepareTea();
-    teaCups.push(teaCup);
-  }
+//   for(let cups = 1; cups <= numOfCups; cups += 1) {
+//     const teaCup = prepareTea();
+//     teaCups.push(teaCup);
+//   }
 
-  return teaCups;
-};
+//   return teaCups;
+// };
 
-// Add your code below this line
+// // Add your code below this line
 
-const tea4TeamFCC = getTea(40); // :(
+// const tea4TeamFCC = getTea(40); // :(
 
-// Add your code above this line
+// // Add your code above this line
 
-console.log(tea4TeamFCC);
+// console.log(tea4TeamFCC);
 
-// tabs is an array of titles of each site open within the window
-var Window = function(tabs) {
-  this.tabs = tabs; // we keep a record of the array inside the object
-};
+// // tabs is an array of titles of each site open within the window
+// var Window = function(tabs) {
+//   this.tabs = tabs; // we keep a record of the array inside the object
+// };
 
-// When you join two windows into one window
-Window.prototype.join = function (otherWindow) {
-  this.tabs = this.tabs.concat(otherWindow.tabs);
-  return this;
-};
+// // When you join two windows into one window
+// Window.prototype.join = function (otherWindow) {
+//   this.tabs = this.tabs.concat(otherWindow.tabs);
+//   return this;
+// };
 
-// When you open a new tab at the end
-Window.prototype.tabOpen = function (tab) {
-  this.tabs.push('new tab'); // let's open a new tab for now
-  return this;
-};
+// // When you open a new tab at the end
+// Window.prototype.tabOpen = function (tab) {
+//   this.tabs.push('new tab'); // let's open a new tab for now
+//   return this;
+// };
 
-// When you close a tab
-Window.prototype.tabClose = function (index) {
-  var tabsBeforeIndex = this.tabs.splice(0, index); // get the tabs before the tab
-  var tabsAfterIndex = this.tabs.splice(index); // get the tabs after the tab
+// // When you close a tab
+// Window.prototype.tabClose = function (index) {
+//   var tabsBeforeIndex = this.tabs.splice(0, index); // get the tabs before the tab
+//   var tabsAfterIndex = this.tabs.splice(index); // get the tabs after the tab
 
-  this.tabs = tabsBeforeIndex.concat(tabsAfterIndex); // join them together 
-  return this;
- };
+//   this.tabs = tabsBeforeIndex.concat(tabsAfterIndex); // join them together 
+//   return this;
+//  };
 
-// Let's create three browser windows
-var workWindow = new Window(['GMail', 'Inbox', 'Work mail', 'Docs', 'freeCodeCamp']); 
-var socialWindow = new Window(['FB', 'Gitter', 'Reddit', 'Twitter', 'Medium']); 
-var videoWindow = new Window(['Netflix', 'YouTube', 'Vimeo', 'Vine']); 
-var finalTabs = socialWindow
-.tabOpen() 
-.join(videoWindow) 
-.join(workWindow.tabOpen());
+// // Let's create three browser windows
+// var workWindow = new Window(['GMail', 'Inbox', 'Work mail', 'Docs', 'freeCodeCamp']); 
+// var socialWindow = new Window(['FB', 'Gitter', 'Reddit', 'Twitter', 'Medium']); 
+// var videoWindow = new Window(['Netflix', 'YouTube', 'Vimeo', 'Vine']); 
+// var finalTabs = socialWindow
+// .tabOpen() 
+// .join(videoWindow) 
+// .join(workWindow.tabOpen());
 
-alert(finalTabs.tabs);
+// alert(finalTabs.tabs);
+
+// // the global variable
+// var fixedValue = 4;
+
+// function incrementer () {
+//   // Add your code below this line
+//  return fixedValue +1;
+  
+//   // Add your code above this line
+// }
+
+// var newValue = incrementer(); // Should equal 5
+// console.log(fixedValue); // Should print 4
 
 // the global variable
 var fixedValue = 4;
 
-function incrementer () {
-  // Add your code below this line
- return fixedValue +1;
+// Add your code below this line
+function incrementer (value) {
+  return value + 1;
   
   // Add your code above this line
 }
 
-var newValue = incrementer(); // Should equal 5
+var newValue = incrementer(fixedValue); // Should equal 5
 console.log(fixedValue); // Should print 4
+
+
+// the global variable
+var bookList = ["The Hound of the Baskervilles", "On The Electrodynamics of Moving Bodies", "Philosophiæ Naturalis Principia Mathematica", "Disquisitiones Arithmeticae"];
+
+/* This function should add a book to the list and return the list */
+// New parameters should come before the bookName one
+
+// Add your code below this line
+function add (list,bookName) {
+  return [...list, bookName];
+}
+
+
+/* This function should remove a book from the list and return the list */
+// New parameters should come before the bookName one
+
+// Add your code below this line
+
+function remove (list,bookName) {
+  if (list.indexOf(bookName) >= 0) {
+    return list.filter((item) => item !== bookName);
+    }
+}
+var newBookList = add(bookList, 'A Brief History of Time');
+var newerBookList = remove(bookList, 'On The Electrodynamics of Moving Bodies');
+var newestBookList = remove(add(bookList, 'A Brief History of Time'), 'On The Electrodynamics of Moving Bodies');
+
+console.log(bookList);
+
+
+// the global Array
+var s = [23, 65, 98, 5];
+
+Array.prototype.myMap = function(callback){
+  var newArray = [];
+  // Add your code below this line
+  this.forEach(a => newArray.push(callback(a)));
+  // Add your code above this line
+  return newArray;
+
+};
+
+var new_s = s.myMap(function(item){
+  return item * 2;
+});
+
+// practising filter
+var filteredList = watchList.map(function(e) {
+    return {title: e["Title"], rating: e["imdbRating"]}
+  }).filter((e) => e.rating >= 8);
