@@ -738,97 +738,130 @@ function add (list,bookName) {
 
 
 // the global Array
-var s = [23, 65, 98, 5];
+// var s = [23, 65, 98, 5];
 
-Array.prototype.myFilter = function(callback){
-  var newArray = [];
-  // Add your code below this line
-  this.forEach(function(x) {
-    if (callback(x) == true) {
-      newArray.push(x);
-    }
-  })
-  // Add your code above this line
-  return newArray;
+// Array.prototype.myFilter = function(callback){
+//   var newArray = [];
+//   // Add your code below this line
+//   this.forEach(function(x) {
+//     if (callback(x) == true) {
+//       newArray.push(x);
+//     }
+//   })
+//   // Add your code above this line
+//   return newArray;
 
-};
+// };
 
-var new_s = s.myFilter(function(item){
-  return item % 2 === 1;
-});
+// var new_s = s.myFilter(function(item){
+//   return item % 2 === 1;
+// });
 
 
 
-function sliceArray(anim, beginSlice, endSlice) {
-    // Add your code below this line
+// function sliceArray(anim, beginSlice, endSlice) {
+//     // Add your code below this line
     
-     return anim.slice(beginSlice, endSlice);
-    // Add your code above this line
-  }
-  var inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
-  sliceArray(inputAnim, 1, 3);
+//      return anim.slice(beginSlice, endSlice);
+//     // Add your code above this line
+//   }
+//   var inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
+//   sliceArray(inputAnim, 1, 3);
 
 
-  function nonMutatingConcat(original, attach) {
-    // Add your code below this line
-      return original.concat(attach); 
+//   function nonMutatingConcat(original, attach) {
+//     // Add your code below this line
+//       return original.concat(attach); 
     
-    // Add your code above this line
-  }
-  var first = [1, 2, 3];
-  var second = [4, 5];
-  nonMutatingConcat(first, second);
+//     // Add your code above this line
+//   }
+//   var first = [1, 2, 3];
+//   var second = [4, 5];
+//   nonMutatingConcat(first, second);
 
 
 
-  function nonMutatingPush(original, newItem) {
-    // Add your code below this line
-    return original.concat(newItem);
-    // Add your code above this line
-  }
-  var first = [1, 2, 3];
-  var second = [4, 5];
-  nonMutatingPush(first, second);
+//   function nonMutatingPush(original, newItem) {
+//     // Add your code below this line
+//     return original.concat(newItem);
+//     // Add your code above this line
+//   }
+//   var first = [1, 2, 3];
+//   var second = [4, 5];
+//   nonMutatingPush(first, second);
 
 
 
 
-  var averageRating;
-var averageRating = watchList.filter(x => x.Director === "Christopher Nolan").map(x => Number(x.imdbRating)).reduce((x1, x2) => x1 + x2) / watchList.filter(x => x.Director === "Christopher Nolan").length;
+//   var averageRating;
+// var averageRating = watchList.filter(x => x.Director === "Christopher Nolan").map(x => Number(x.imdbRating)).reduce((x1, x2) => x1 + x2) / watchList.filter(x => x.Director === "Christopher Nolan").length;
 
 
-var globalArray = [5, 6, 3, 2, 9];
-function nonMutatingSort(arr) {
-  // Add your code below this line
-return [].concat(arr).sort(function(a, b) {
-    return a - b;
-  });  
-  // Add your code above this line
-}
-nonMutatingSort(globalArray);
+// var globalArray = [5, 6, 3, 2, 9];
+// function nonMutatingSort(arr) {
+//   // Add your code below this line
+// return [].concat(arr).sort(function(a, b) {
+//     return a - b;
+//   });  
+//   // Add your code above this line
+// }
+// nonMutatingSort(globalArray);
 
 
 
-function splitify(str) {
-    // Add your code below this line
-     return str.split(/\W/);
+// function splitify(str) {
+//     // Add your code below this line
+//      return str.split(/\W/);
     
-    // Add your code above this line
-  }
-  splitify("Hello World,I-am code");
+//     // Add your code above this line
+//   }
+//   splitify("Hello World,I-am code");
 
 
 
-  // the global variable
-var globalTitle = "Winter Is Coming";
+//   // the global variable
+// var globalTitle = "Winter Is Coming";
 
-// Add your code below this line
-function urlSlug(title) {
-return title.split(/\W/).filter((obj)=>{
-    return obj !=='';
-  }).join('-').toLowerCase();
+// // Add your code below this line
+// function urlSlug(title) {
+// return title.split(/\W/).filter((obj)=>{
+//     return obj !=='';
+//   }).join('-').toLowerCase();
   
-}
-// Add your code above this line
+// }
+// // Add your code above this line
 
-var winterComing = urlSlug(globalTitle); // Should be "winter-is-coming"
+// var winterComing = urlSlug(globalTitle); // Should be "winter-is-coming"
+
+
+
+
+function checkPositive(arr) {
+    // Add your code below this line
+     
+    return arr.every(val => val > 0);
+    
+    // Add your code above this line
+  }
+  checkPositive([1, 2, 3, -4, 5]);
+
+
+  function checkPositive(arr) {
+    // Add your code below this line
+     return arr.some((elem) => elem > 0);
+    
+    // Add your code above this line
+  }
+  checkPositive([1, 2, 3, -4, 5]);
+
+
+  function add(x) {
+    // Add your code below this line
+    return function(y) {
+      return function(z) {
+        return x + y + z;
+      }
+    }  
+    // Add your code above this line
+  }
+  add(10)(20)(30);
