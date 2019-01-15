@@ -702,35 +702,133 @@ function add (list,bookName) {
 
 // Add your code below this line
 
-function remove (list,bookName) {
-  if (list.indexOf(bookName) >= 0) {
-    return list.filter((item) => item !== bookName);
-    }
-}
-var newBookList = add(bookList, 'A Brief History of Time');
-var newerBookList = remove(bookList, 'On The Electrodynamics of Moving Bodies');
-var newestBookList = remove(add(bookList, 'A Brief History of Time'), 'On The Electrodynamics of Moving Bodies');
+// function remove (list,bookName) {
+//   if (list.indexOf(bookName) >= 0) {
+//     return list.filter((item) => item !== bookName);
+//     }
+// }
+// var newBookList = add(bookList, 'A Brief History of Time');
+// var newerBookList = remove(bookList, 'On The Electrodynamics of Moving Bodies');
+// var newestBookList = remove(add(bookList, 'A Brief History of Time'), 'On The Electrodynamics of Moving Bodies');
 
-console.log(bookList);
+// console.log(bookList);
+
+
+// // the global Array
+// var s = [23, 65, 98, 5];
+
+// Array.prototype.myMap = function(callback){
+//   var newArray = [];
+//   // Add your code below this line
+//   this.forEach(a => newArray.push(callback(a)));
+//   // Add your code above this line
+//   return newArray;
+
+// };
+
+// var new_s = s.myMap(function(item){
+//   return item * 2;
+// });
+
+// // practising filter
+// var filteredList = watchList.map(function(e) {
+//     return {title: e["Title"], rating: e["imdbRating"]}
+//   }).filter((e) => e.rating >= 8);
+
 
 
 // the global Array
 var s = [23, 65, 98, 5];
 
-Array.prototype.myMap = function(callback){
+Array.prototype.myFilter = function(callback){
   var newArray = [];
   // Add your code below this line
-  this.forEach(a => newArray.push(callback(a)));
+  this.forEach(function(x) {
+    if (callback(x) == true) {
+      newArray.push(x);
+    }
+  })
   // Add your code above this line
   return newArray;
 
 };
 
-var new_s = s.myMap(function(item){
-  return item * 2;
+var new_s = s.myFilter(function(item){
+  return item % 2 === 1;
 });
 
-// practising filter
-var filteredList = watchList.map(function(e) {
-    return {title: e["Title"], rating: e["imdbRating"]}
-  }).filter((e) => e.rating >= 8);
+
+
+function sliceArray(anim, beginSlice, endSlice) {
+    // Add your code below this line
+    
+     return anim.slice(beginSlice, endSlice);
+    // Add your code above this line
+  }
+  var inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
+  sliceArray(inputAnim, 1, 3);
+
+
+  function nonMutatingConcat(original, attach) {
+    // Add your code below this line
+      return original.concat(attach); 
+    
+    // Add your code above this line
+  }
+  var first = [1, 2, 3];
+  var second = [4, 5];
+  nonMutatingConcat(first, second);
+
+
+
+  function nonMutatingPush(original, newItem) {
+    // Add your code below this line
+    return original.concat(newItem);
+    // Add your code above this line
+  }
+  var first = [1, 2, 3];
+  var second = [4, 5];
+  nonMutatingPush(first, second);
+
+
+
+
+  var averageRating;
+var averageRating = watchList.filter(x => x.Director === "Christopher Nolan").map(x => Number(x.imdbRating)).reduce((x1, x2) => x1 + x2) / watchList.filter(x => x.Director === "Christopher Nolan").length;
+
+
+var globalArray = [5, 6, 3, 2, 9];
+function nonMutatingSort(arr) {
+  // Add your code below this line
+return [].concat(arr).sort(function(a, b) {
+    return a - b;
+  });  
+  // Add your code above this line
+}
+nonMutatingSort(globalArray);
+
+
+
+function splitify(str) {
+    // Add your code below this line
+     return str.split(/\W/);
+    
+    // Add your code above this line
+  }
+  splitify("Hello World,I-am code");
+
+
+
+  // the global variable
+var globalTitle = "Winter Is Coming";
+
+// Add your code below this line
+function urlSlug(title) {
+return title.split(/\W/).filter((obj)=>{
+    return obj !=='';
+  }).join('-').toLowerCase();
+  
+}
+// Add your code above this line
+
+var winterComing = urlSlug(globalTitle); // Should be "winter-is-coming"
