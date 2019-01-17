@@ -836,32 +836,51 @@ function add (list,bookName) {
 
 
 
-function checkPositive(arr) {
-    // Add your code below this line
+// function checkPositive(arr) {
+//     // Add your code below this line
      
-    return arr.every(val => val > 0);
+//     return arr.every(val => val > 0);
     
-    // Add your code above this line
-  }
-  checkPositive([1, 2, 3, -4, 5]);
+//     // Add your code above this line
+//   }
+//   checkPositive([1, 2, 3, -4, 5]);
 
 
-  function checkPositive(arr) {
-    // Add your code below this line
-     return arr.some((elem) => elem > 0);
+//   function checkPositive(arr) {
+//     // Add your code below this line
+//      return arr.some((elem) => elem > 0);
     
-    // Add your code above this line
-  }
-  checkPositive([1, 2, 3, -4, 5]);
+//     // Add your code above this line
+//   }
+//   checkPositive([1, 2, 3, -4, 5]);
 
 
-  function add(x) {
-    // Add your code below this line
-    return function(y) {
-      return function(z) {
-        return x + y + z;
-      }
-    }  
-    // Add your code above this line
-  }
-  add(10)(20)(30);
+//   function add(x) {
+//     // Add your code below this line
+//     return function(y) {
+//       return function(z) {
+//         return x + y + z;
+//       }
+//     }  
+//     // Add your code above this line
+//   }
+//   add(10)(20)(30);
+
+// Intermediate  Algorithms
+function diffArray(arr1, arr2) {
+  return arr1
+  .concat(arr2)
+  .filter(
+    item => !arr1.includes(item) || !arr2.includes(item)
+  )
+  // Same, same; but different.
+
+}
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+
+
+const destroyer = (arr, ...args) => arr.filter(i => !args.includes(i));
+
+
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
