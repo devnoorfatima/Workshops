@@ -867,20 +867,48 @@ function add (list,bookName) {
 //   add(10)(20)(30);
 
 // Intermediate  Algorithms
-function diffArray(arr1, arr2) {
-  return arr1
-  .concat(arr2)
-  .filter(
-    item => !arr1.includes(item) || !arr2.includes(item)
-  )
-  // Same, same; but different.
+// function diffArray(arr1, arr2) {
+//   return arr1
+//   .concat(arr2)
+//   .filter(
+//     item => !arr1.includes(item) || !arr2.includes(item)
+//   )
+//   // Same, same; but different.
 
+// }
+
+// diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+
+
+// const destroyer = (arr, ...args) => arr.filter(i => !args.includes(i));
+
+
+// destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+
+
+
+
+function whatIsInAName(collection, source) {
+  // What's in a name?
+  var arr = [];
+  // Only change code below this line
+    var srcKeys = Object.keys(source);
+  return collection.filter(function (obj) {
+    return srcKeys.every(function (key) {
+      return obj.hasOwnProperty(key) && obj[key] === source[key];
+    });
+  });
+}
+  // Only change code above this line
+whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
+
+
+function spinalCase(str) {
+  // "It's such a fine line between stupid, and clever."
+  // --David St. Hubbins
+  return str.split(/\s|_|(?=[A-Z])/).join('-').toLowerCase();
 }
 
-diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
-
-
-const destroyer = (arr, ...args) => arr.filter(i => !args.includes(i));
-
-
-destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+spinalCase('This Is Spinal Tap');
