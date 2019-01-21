@@ -889,26 +889,230 @@ function add (list,bookName) {
 
 
 
-function whatIsInAName(collection, source) {
-  // What's in a name?
-  var arr = [];
-  // Only change code below this line
-    var srcKeys = Object.keys(source);
-  return collection.filter(function (obj) {
-    return srcKeys.every(function (key) {
-      return obj.hasOwnProperty(key) && obj[key] === source[key];
-    });
+// function whatIsInAName(collection, source) {
+//   // What's in a name?
+//   var arr = [];
+//   // Only change code below this line
+//     var srcKeys = Object.keys(source);
+//   return collection.filter(function (obj) {
+//     return srcKeys.every(function (key) {
+//       return obj.hasOwnProperty(key) && obj[key] === source[key];
+//     });
+//   });
+// }
+//   // Only change code above this line
+// whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+
+
+
+// function spinalCase(str) {
+//   // "It's such a fine line between stupid, and clever."
+//   // --David St. Hubbins
+//   return str.split(/\s|_|(?=[A-Z])/).join('-').toLowerCase();
+// }
+
+// spinalCase('This Is Spinal Tap');
+
+
+
+function myReplace(str, before, after) {
+  // Find index where before is on string
+  var index = str.indexOf(before);
+  // Check to see if the first letter is uppercase or not
+  if (str[index] === str[index].toUpperCase()) {
+    // Change the after word to be capitalized before we use it.
+    after = after.charAt(0).toUpperCase() + after.slice(1);
+  }
+  // Now replace the original str with the edited one.
+  str = str.replace(before, after);
+
+  return str;
+}
+
+// test here
+myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+
+
+function pairElement(str) {
+  // Return each strand as an array of two elements, the original and the pair.
+  var paired = [];
+
+  // Function to check with strand to pair.
+  var search = function(char) {
+    switch (char) {
+      case 'A':
+        paired.push(['A', 'T']);
+        break;
+      case 'T':
+        paired.push(['T', 'A']);
+        break;
+      case 'C':
+        paired.push(['C', 'G']);
+        break;
+      case 'G':
+        paired.push(['G', 'C']);
+        break;
+    }
+  };
+
+  // Loops through the input and pair.
+  for (var i = 0; i < str.length; i++) {
+    search(str[i]);
+  }
+
+  return paired;
+}
+
+// test here
+pairElement("GCG");
+
+
+
+
+function uniteUnique(arr1, arr2, arr3) {
+  // Creates an empty array to store our final result.
+  var finalArray = [];
+
+  // Loop through the arguments object to truly made the program work with two or more arrays
+  // instead of 3.
+  for (var i = 0; i < arguments.length; i++) {
+    var arrayArguments = arguments[i];
+
+    // Loops through the array at hand
+    for (var j = 0; j < arrayArguments.length; j++) {
+      var indexValue = arrayArguments[j];
+
+      // Checks if the value is already on the final array.
+      if (finalArray.indexOf(indexValue) < 0) {
+        finalArray.push(indexValue);
+      }
+    }
+  }
+
+  return finalArray;
+}
+
+// test here
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+
+function convertHTML(str) {
+  // Split by character to avoid problems.
+
+  var temp = str.split('');
+
+  // Since we are only checking for a few HTML elements I used a switch
+
+  for (var i = 0; i < temp.length; i++) {
+    switch (temp[i]) {
+      case '<':
+        temp[i] = '&lt;';
+        break;
+      case '&':
+        temp[i] = '&amp;';
+        break;
+      case '>':
+        temp[i] = '&gt;';
+        break;
+      case '"':
+        temp[i] = '&quot;';
+        break;
+      case "'":
+        temp[i] = "&apos;";
+        break;
+    }
+  }
+
+  temp = temp.join('');
+  return temp;
+}
+
+//test here
+convertHTML("Dolce & Gabbana");
+
+
+
+function sumFibs(num) {
+  var prevNumber = 0;
+  var currNumber = 1;
+  var result = 0;
+  while (currNumber <= num) {
+      if (currNumber % 2 !== 0) {
+          result += currNumber;
+      }
+
+      currNumber += prevNumber;
+      prevNumber = currNumber - prevNumber;
+  }
+
+  return result;
+}
+
+// test here
+sumFibs(4);
+
+
+
+
+function sumPrimes(num) {
+  var res = 0;
+ function getPrimes(max) {
+    var sieve = [];
+    var i;
+    var j;
+    var primes = [];
+    for (i = 2; i <= max; ++i) {
+      if (!sieve[i]) {
+        primes.push(i);
+        for (j = i << 1; j <= max; j += i) {
+          sieve[j] = true;
+        }
+      }
+    }
+
+    return primes;
+  }
+ var primes = getPrimes(num);
+  for (var p = 0; p < primes.length; p++) {
+    res += primes[p];
+  }
+
+  return res;
+}
+
+// test here
+sumPrimes(10);
+
+
+
+
+
+function smallestCommons(arr) {
+  arr.sort(function(a, b) {
+    return b - a;
   });
+
+  var newArr = [];
+  for (var i = arr[0]; i >= arr[1]; i--) {
+    newArr.push(i);
+  }
+
+  var quot = 0;
+  var loop = 1;
+  var n;
+  do {
+    quot = newArr[0] * loop * newArr[1];
+    for (n = 2; n < newArr.length; n++) {
+      if (quot % newArr[n] !== 0) {
+        break;
+      }
+    }
+
+    loop++;
+  } while (n !== newArr.length);
+
+  return quot;
 }
-  // Only change code above this line
-whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
 
-
-
-function spinalCase(str) {
-  // "It's such a fine line between stupid, and clever."
-  // --David St. Hubbins
-  return str.split(/\s|_|(?=[A-Z])/).join('-').toLowerCase();
-}
-
-spinalCase('This Is Spinal Tap');
+// test here
+smallestCommons([1,5]);
