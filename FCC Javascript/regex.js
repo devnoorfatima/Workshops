@@ -1120,88 +1120,149 @@ function add (list,bookName) {
 
 
 
-function dropElements(arr, func) {
-  // drop them elements.
-  var times = arr.length;
-  for (var i = 0; i < times; i++) {
-    if (func(arr[0])) {
-      break;
-    } else {
-      arr.shift();
-    }
+// function dropElements(arr, func) {
+//   // drop them elements.
+//   var times = arr.length;
+//   for (var i = 0; i < times; i++) {
+//     if (func(arr[0])) {
+//       break;
+//     } else {
+//       arr.shift();
+//     }
+//   }
+//   return arr;
+// }
+
+// // test here
+// dropElements([1, 2, 3, 4], function(n) {return n >= 3;})
+
+
+
+
+// function binaryAgent(str) {
+//   biString = str.split(' ');
+//   uniString = [];
+//   for(i=0;i < biString.length;i++){
+//   uniString.push(String.fromCharCode(parseInt(biString[i], 2)));
+//   }
+//   return uniString.join('');
+//   }
+  
+//       // test here
+//       binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+
+
+
+
+//       function binaryAgent(str) {
+//         return String.fromCharCode(...str.split(" ").map(function(char){ return parseInt(char, 2); }));
+//       }
+  
+//       // test here
+//       binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
+
+
+
+//       function truthCheck(collection, pre) {
+//         return collection.every(function (element) {
+//           return element.hasOwnProperty(pre) && Boolean(element[pre]);
+//         });
+//       }
+      
+//       // test here
+//       truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
+
+
+
+//       function addTogether() {
+//         var checkNum = function(num) {
+//           if (typeof num !== 'number') {
+//             return undefined;
+//           } else
+//             return num;
+//         };
+//         if (arguments.length > 1) {
+//           var a = checkNum(arguments[0]);
+//           var b = checkNum(arguments[1]);
+//           if (a === undefined || b === undefined) {
+//             return undefined;
+//           } else {
+//             return a + b;
+//           }
+//         } else {
+//           var c = arguments[0];
+//           if (checkNum(c)) {
+//             return function(arg2) {
+//               if (c === undefined || checkNum(arg2) === undefined) {
+//                 return undefined;
+//               } else {
+//                 return c + arg2;
+//               }
+//             };
+//           }
+//         }
+//       }
+  
+//       // test here
+//       addTogether(2,3);
+
+
+
+
+var Person = function(firstAndLast) {
+  var fullName = firstAndLast;
+
+  this.getFirstName = function() {
+    return fullName.split(" ")[0];
+  };
+
+  this.getLastName = function() {
+    return fullName.split(" ")[1];
+  };
+
+  this.getFullName = function() {
+    return fullName;
+  };
+
+  this.setFirstName = function(name) {
+    fullName = name + " " + fullName.split(" ")[1];
+  };
+
+  this.setLastName = function(name) {
+    fullName = fullName.split(" ")[0] + " " + name;
+  };
+
+  this.setFullName = function(name) {
+    fullName = name;
+  };
+};
+
+var bob = new Person('Bob Ross');
+bob.getFullName();
+
+
+
+
+function orbitalPeriod(arr) {
+  var GM = 398600.4418;
+  var earthRadius = 6367.4447;
+  var a = 2 * Math.PI;
+  var newArr = [];
+  var getOrbPeriod = function(obj) {
+    var c = Math.pow(earthRadius + obj.avgAlt, 3);
+    var b = Math.sqrt(c / GM);
+    var orbPeriod = Math.round(a * b);
+    delete obj.avgAlt;
+    obj.orbitalPeriod = orbPeriod;
+    return obj;
+  };
+
+  for (var elem in arr) {
+    newArr.push(getOrbPeriod(arr[elem]));
   }
-  return arr;
+
+  return newArr;
 }
 
 // test here
-dropElements([1, 2, 3, 4], function(n) {return n >= 3;})
-
-
-
-
-function binaryAgent(str) {
-  biString = str.split(' ');
-  uniString = [];
-  for(i=0;i < biString.length;i++){
-  uniString.push(String.fromCharCode(parseInt(biString[i], 2)));
-  }
-  return uniString.join('');
-  }
-  
-      // test here
-      binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
-
-
-
-
-      function binaryAgent(str) {
-        return String.fromCharCode(...str.split(" ").map(function(char){ return parseInt(char, 2); }));
-      }
-  
-      // test here
-      binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
-
-
-
-      function truthCheck(collection, pre) {
-        return collection.every(function (element) {
-          return element.hasOwnProperty(pre) && Boolean(element[pre]);
-        });
-      }
-      
-      // test here
-      truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
-
-
-
-      function addTogether() {
-        var checkNum = function(num) {
-          if (typeof num !== 'number') {
-            return undefined;
-          } else
-            return num;
-        };
-        if (arguments.length > 1) {
-          var a = checkNum(arguments[0]);
-          var b = checkNum(arguments[1]);
-          if (a === undefined || b === undefined) {
-            return undefined;
-          } else {
-            return a + b;
-          }
-        } else {
-          var c = arguments[0];
-          if (checkNum(c)) {
-            return function(arg2) {
-              if (c === undefined || checkNum(arg2) === undefined) {
-                return undefined;
-              } else {
-                return c + arg2;
-              }
-            };
-          }
-        }
-      }
-  
-      // test here
-      addTogether(2,3);
+orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]);
