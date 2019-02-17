@@ -1,16 +1,13 @@
+  function billingFunction() {
 
+      if (document.getElementById("same").checked) {
 
-function upDate(previewPic){
-    document.getElementById("image").style.backgroundImage = "url("+ previewPic.src + ")"
-    document.getElementById("image").innerHTML = previewPic.alt;
+          document.getElementById("billingName").value = document.getElementById("shippingName").value;
 
-     
-       }
-   
-       function unDo(){
-        document.getElementById("image").style.backgroundImage= ""
-        document.getElementById("image").innerHTML = "Hover over an image below to display here.";
-    }
+          document.getElementById("billingZip").value = document.getElementById("shippingZip").value;
+      } else {
+          document.getElementById("billingName").value = "";
 
-
-   
+          document.getElementById("billingZip").value = "";
+      }
+  };
