@@ -1,9 +1,31 @@
-input{
-    border:1px solid black;
+body{
+    font-family: Poppins;
+    font-size: 18px;
 }
-input:focus{
-    background-color: #E6E6E6;
+
+#align{
+    text-align: center;
+    margin: auto;
 }
-fieldset{
-    margin-bottom: 4%;
+h1{
+    font-size: 3rem;
+}
+.size{
+    width: 250px;
+    height: 20px;
+    margin: 5px 0 5px 0;
+}
+
+#same{
+    margin: 0;
+}
+legend{
+    font-size: 25px;
+    margin: 10px 0 5px 0;
+}
+button{
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 3px;
+    margin :8px;
 }

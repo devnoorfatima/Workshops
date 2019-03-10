@@ -1,13 +1,18 @@
-  function billingFunction() {
+let name = document.getElementById("shippingName");
+let shippingZip = document.getElementById("shippingZip");
 
-      if (document.getElementById("same").checked) {
+let billingName = document.getElementById("billingName");
+let billingZip = document.getElementById("billingZip");
 
-          document.getElementById("billingName").value = document.getElementById("shippingName").value;
+let checkbox = document.getElementById("same");
 
-          document.getElementById("billingZip").value = document.getElementById("shippingZip").value;
-      } else {
-          document.getElementById("billingName").value = "";
 
-          document.getElementById("billingZip").value = "";
-      }
-  };
+function copyingFunction() {
+if (checkbox.checked){
+    billingName.value = name.value;
+    billingZip.value = shippingZip.value;
+}else{
+    billingName.value = "";
+    billingZip.value = "";
+}
+};
