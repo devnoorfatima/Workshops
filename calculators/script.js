@@ -15,12 +15,14 @@ function calculateTip() {
         // console.log(percentage.value);
         let tip = ((bill.value / 100) * percentage.value);
         // console.log(tip);
+        debugger;
         tipCalculated.value = tip;
         //  console.log(tipCalculated);
-        totalBill.value = parseInt(tip) + parseInt(bill.value);
-        person.value =  parseInt(totalBill.value) / parseInt(people.value);
-    } else {
+        totalBill.value = (parseInt(tip) + parseInt(bill.value));
+        person.value = Math.round(parseInt(totalBill.value) / parseInt(people.value));
+        return;
+    } 
+    else {
         alert('Enter the data in fields');
     }
-
 };
