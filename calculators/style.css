@@ -11,6 +11,10 @@
  }
 
  /* styles for nav-bar */
+ .navbar-brand{
+     margin:10px;
+ }
+ 
  .navbar-nav li {
      padding-right: 1.3em;
  }
@@ -37,12 +41,12 @@
  /* styles for form */
  form {
      display: inline-block;
-     margin-left: auto;
-     margin-right: auto;
+     /* margin-left: auto;
+     margin-right: auto; */
      text-align: left;
      background-color: rgb(105, 196, 161);
      padding: 3rem;
-     margin-top: 2rem;
+     margin: 2rem auto 2rem auto;
      border-radius: 10px;
      border: 5px double rgb(66, 65, 65);
  }

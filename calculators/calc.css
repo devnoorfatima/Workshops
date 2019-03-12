@@ -1,0 +1,81 @@
+ /* styles for body*/
+ body {
+    font-family: Poppins;
+    font-size: 20px;
+    background-color: rgb(78, 82, 78);
+    text-align: center;
+    background: linear-gradient(to bottom, #72e0a4, #2a72ad);
+    /* background: url(./bg.jpeg); */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+} 
+
+/* styles for nav-bar */
+.navbar-brand{
+  margin:10px;
+}
+
+.navbar-nav li {
+    padding-right: 1.3em;
+}
+
+.nav-link {
+    font-size: 1.1em !important;
+    color: white;
+}
+
+.nav-link:hover {
+    color: white;
+}
+/* styles for calculator */
+.container {
+  max-width: 20em;
+}
+
+.container > p {
+  text-align: center;
+}
+
+.calculator {
+  border-radius: 12px;
+  box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.15);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+  max-width: 15em;
+  overflow: hidden;
+}
+
+.calculator__display {
+  background-color: #222222;
+  color: #fff;
+  font-size: 1.7em;
+  padding: 0.5em 0.75em;
+  text-align: right;
+}
+
+.calculator__keys {
+  background-color: #999;
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.calculator__keys > * {
+  background-color: #fff;
+  padding: 0.5em 1.25em;
+  position: relative;
+  text-align: center;
+}
+
+.key--operator {
+  background-color: #eee;
+}
+
+.key--equal {
+  background-image: linear-gradient(to bottom, #72e0a4, #2a72ad);
+  grid-column: -2;
+  grid-row: 2 / span 4;
+}
+

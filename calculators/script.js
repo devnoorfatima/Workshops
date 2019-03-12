@@ -15,7 +15,6 @@ function calculateTip() {
         // console.log(percentage.value);
         let tip = ((bill.value / 100) * percentage.value);
         // console.log(tip);
-        debugger;
         tipCalculated.value = tip;
         //  console.log(tipCalculated);
         totalBill.value = (parseInt(tip) + parseInt(bill.value));
