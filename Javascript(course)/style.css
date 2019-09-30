@@ -1,6 +1,7 @@
 body{
     font-family: Poppins;
     font-size: 18px;
+    background-color: rgb(78, 82, 78);
 }
 
 #align{
@@ -14,6 +15,12 @@ h1{
     width: 250px;
     height: 20px;
     margin: 5px 0 5px 0;
+    border: none;
+    border-bottom: 1px solid rgb(129, 124, 124);
+    background-color: rgb(78, 82, 78);
+}
+.size:focus {
+    outline: none;
 }
 
 #same{
@@ -24,8 +31,14 @@ legend{
     margin: 10px 0 5px 0;
 }
 button{
-    font-size: 20px;
+    font-size: 25px;
     border: 1px solid black;
     border-radius: 3px;
     margin :8px;
+    background-color: rgb(78, 82, 78);
+}
+
+
+button:focus {
+    outline: none;
 }
